@@ -1,0 +1,44 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.body{
+    text-align: center;
+    background: #2799ad;
+    color: #fff;
+}
+.title{
+    margin: 20px auto;
+}
+.textarea{
+    display: block;
+    width: 80%;
+    height: 200px;
+    padding: 10px;
+    margin: 15px auto;
+    font-size: 1rem;
+    color: #000000;
+    background-color: #fff;
+}
+
+.board{
+    width: 80%;
+    padding: 5px;
+    margin: 15px auto;
+    border-radius: 5px;
+    background-color: #91d4dd;
+}
+
+.key{
+    height: 45px;
+    width: 45px;
+    margin: 3px;
+    border: none;
+    border-radius: 5px;
+    background-color: #266074;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
