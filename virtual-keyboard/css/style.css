@@ -4,7 +4,7 @@
     padding: 0;
 }
 
-.body{
+body{
     text-align: center;
     background: #2799ad;
     color: #fff;
@@ -12,14 +12,14 @@
 .title{
     margin: 20px auto;
 }
-.textarea{
+.text{
     display: block;
     width: 80%;
     height: 200px;
     padding: 10px;
     margin: 15px auto;
     font-size: 1rem;
-    color: #000000;
+    color: #0d4657;
     background-color: #fff;
 }
 
@@ -41,4 +41,20 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    vertical-align: top;
 }
+
+.key:hover{
+   /*background-color: #44afc5;*/
+   opacity: 0.8;
+}
+.key-control{
+    width: 100px;
+    background-color: #2e7b8b;
+}
+
+.key-space{
+    width: 300px;
+    background-color: #2e7b8b;
+}
+
