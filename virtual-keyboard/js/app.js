@@ -11,16 +11,12 @@ window.onload = function() {
 
     const pBoard = document.querySelector('.board');
     const pText = document.querySelector('.text');
-   // const pChangeBtn=document.querySelector('.change-btn');
 
     let keyMode=2;
     if( 'keyMode' in localStorage)
          keyMode=localStorage.getItem('keyMode');
     else
        localStorage.setItem('keyMode', keyMode);
-
-    console.log('keyMode',keyMode);
-
 
     const aKeys=[
 
@@ -84,7 +80,6 @@ window.onload = function() {
         [3,1,'↑','','','',1,'ArrowUp'],
         [3,1,'Shift','','','',2,'ShiftRight'],
 
-
         [4,1,'Ctrl','','','',1,'ControlLeft'],
         [4,1,'Win','','','',1,'MetaLeft'],
         [4,1,'Alt','','','',1,'AltLeft'],
@@ -94,7 +89,6 @@ window.onload = function() {
         [4,1,'↓','','','',1,'ArrowDown'],
         [4,1,'→','','','',1,'ArrowRight'],
         [4,1,'Ctrl','','','',1,'ControlRight']
-
 
     ];
 
@@ -145,7 +139,6 @@ window.onload = function() {
     function getBack(s){
       if (s.length>0){
         s=s.slice(0,-1);
-        console.log();
       }
       return s;
     }
@@ -159,7 +152,6 @@ window.onload = function() {
     function toggleCapsLock(){
       keyMode=(keyMode===2)? 3 : (keyMode===3)? 2 : (keyMode===4)? 5 : 4;
       localStorage.setItem('keyMode', keyMode);
-  //    console.log('keyMode',keyMode);
       showKeys();
     }
 
