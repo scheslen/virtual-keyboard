@@ -12,6 +12,8 @@ window.onload = function() {
     const pBoard = document.querySelector('.board');
     const pText = document.querySelector('.text');
 
+    const keyMode=2;
+
     const aKeys=[
 
         [0,0,'`','~','Ё','ё',1],
@@ -100,13 +102,27 @@ window.onload = function() {
       else if (aKeys[i][6]===3)  pKey.style.width='350px';
       pKey.addEventListener('click',function(e) {
         this.classList.add("pressed");
+        const timerPress=setInterval(endPress,300);
         });
-
       pBoard.childNodes[aKeys[i][0]].appendChild(pKey);
     }
 
 
+    let apKey=document.querySelectorAll('.key');
+    function endPress () {
+        for (let i in apKey){
+          if (apKey[i].classList.contains('pressed'))
+            apKey[i].classList.remove('pressed');
+        }
+    }
 
+    function showKeys(){
+
+      for (let i in apKey){
+        apKey[i].textContent=aKeys[i][keyMode];
+       }
+
+    }
 
 
 
