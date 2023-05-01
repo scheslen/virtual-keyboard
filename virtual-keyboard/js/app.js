@@ -118,7 +118,10 @@ window.onload = function() {
         this.classList.add('pressed');
         const timerPress=setTimeout(endPress,300);
         if (aKeys[i][1]===0)  pText.value=pText.value+getChar(i);
+        if (aKeys[i][7]==='Space') pText.value=pText.value+' ';
+        if (aKeys[i][7]==='Tab') pText.value=pText.value+'    ';
         if (aKeys[i][7]==='CapsLock') toggleCapsLock();
+        if (aKeys[i][7]==='Backspace')pText.value=getBack(pText.value);
 
         });
 
@@ -139,49 +142,38 @@ window.onload = function() {
       return aKeys[iKey][keyMode];
     }
 
-    function showKeys(){
+    function getBack(s){
+      if (s.length>0){
+        s=s.slice(0,-1);
+        console.log();
+      }
+      return s;
+    }
 
-      console.log('showkeys++++++++');
+    function showKeys(){
       for (i=0; i< apKey.length; i++){
         if (aKeys[i][1]===0) apKey[i].textContent=aKeys[i][keyMode];
        }
     }
 
     function toggleCapsLock(){
-      console.log ('toggleCapsLock----',keyMode);
-     /* switch (keyMode){
-        case 2: keyMode=3; break;
-        case 3: keyMode=2; break;
-        case 4: keyMode=5; break;
-        case 5: keyMode=4;
-      }*/
       keyMode=(keyMode===2)? 3 : (keyMode===3)? 2 : (keyMode===4)? 5 : 4;
-
       localStorage.setItem('keyMode', keyMode);
-      console.log('keyMode',keyMode);
+  //    console.log('keyMode',keyMode);
       showKeys();
     }
 
     document.querySelector('.change-btn').addEventListener('click',toggleLanguage);
 
     function toggleLanguage(){
-   /*   switch (keyMode){
-        case '2': keyMode=4; break;
-        case '3': keyMode=5; break;
-        case '4': keyMode=2; break;
-        case '5': keyMode=3;
-      }*/
       keyMode=(keyMode===2)? 4 : (keyMode===3)? 5 : (keyMode===4)? 2 : 3;
       localStorage.setItem('keyMode', keyMode);
       showKeys();
     }
 
     document.body.addEventListener('keydown', e=>{
-      // console.log('***',e.key,e.code);
-       console.log('***',e);
        for (i=0; i< apKey.length; i++){
         if (e.code===aKeys[i][7] ){
-        //(e.key===aKeys[i][2]  || e.key===aKeys[i][3] || e.key===aKeys[i][4] || e.key===aKeys[i][5] ){
           apKey[i].classList.add('pressed');
           const timerPhPress=setTimeout(endPress,300);
           if (aKeys[i][1]===0) pText.value=pText.value+getChar(i);
