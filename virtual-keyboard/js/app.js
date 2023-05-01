@@ -177,7 +177,8 @@ window.onload = function() {
     }
 
     document.body.addEventListener('keydown', e=>{
-       console.log('***',e.key,e.code);
+      // console.log('***',e.key,e.code);
+       console.log('***',e);
        for (i=0; i< apKey.length; i++){
         if (e.code===aKeys[i][7] ){
         //(e.key===aKeys[i][2]  || e.key===aKeys[i][3] || e.key===aKeys[i][4] || e.key===aKeys[i][5] ){
@@ -186,6 +187,7 @@ window.onload = function() {
           if (aKeys[i][1]===0) pText.value=pText.value+getChar(i);
         }
         if (e.code==='CapsLock') toggleCapsLock();
+        if (e.altKey && e.shiftKey) toggleLanguage();
        }
 
     });
