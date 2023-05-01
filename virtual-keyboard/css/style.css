@@ -14,19 +14,19 @@ body{
 }
 .text{
     display: block;
-    width: 80%;
+    width: 850px;
     height: 200px;
     padding: 10px;
-    margin: 15px auto;
+    margin: 30px auto;
     font-size: 1rem;
     color: #0d4657;
     background-color: #fff;
 }
 
 .board{
-    width: 80%;
-    padding: 5px;
-    margin: 15px auto;
+    width: 850px;
+    padding: 15px;
+    margin: 30px auto;
     border-radius: 5px;
     background-color: #91d4dd;
 }
@@ -49,12 +49,16 @@ body{
    opacity: 0.8;
 }
 .key-control{
-    width: 100px;
+  /*  width: 100px;*/
     background-color: #2e7b8b;
 }
 
-.key-space{
+/*.key-space{
     width: 300px;
     background-color: #2e7b8b;
-}
+}*/
 
+.pressed{
+    background-color: #fff;
+    border-radius: 40%;
+}
