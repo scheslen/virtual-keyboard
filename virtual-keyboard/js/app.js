@@ -102,29 +102,43 @@ window.onload = function() {
       else if (aKeys[i][6]===3)  pKey.style.width='350px';
       pKey.addEventListener('click',function(e) {
         this.classList.add("pressed");
-        const timerPress=setInterval(endPress,300);
+        const timerPress=setTimeout(endPress,300);
         });
       pBoard.childNodes[aKeys[i][0]].appendChild(pKey);
     }
 
 
     let apKey=document.querySelectorAll('.key');
+
+    //console.log(apKey);
     function endPress () {
-        for (let i in apKey){
-          if (apKey[i].classList.contains('pressed'))
+        for ( i=0; i< apKey.length; i++){
+            if (apKey[i].classList.contains('pressed')){
             apKey[i].classList.remove('pressed');
+          }
         }
     }
 
     function showKeys(){
 
-      for (let i in apKey){
+      for (i=0; i< apKey.length; i++){
         apKey[i].textContent=aKeys[i][keyMode];
        }
 
     }
 
+    document.body.addEventListener('keydown', e=>{
+       for (i=0; i< apKey.length; i++){
+       // console.log('***',e,e.key);
+        if (e.key===aKeys[i][2]  || e.key===aKeys[i][3] || e.key===aKeys[i][4] || e.key===aKeys[i][5] ){
+          apKey[i].classList.add('pressed');
+          const timerPhPress=setTimeout(endPress,300);
+        }
+       }
 
+    });
+
+    
 
 
 
