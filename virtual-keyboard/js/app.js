@@ -131,15 +131,18 @@ window.onload = function () {
 
     if (aKeys[i][1] === 0) pKey.textContent = aKeys[i][keyMode];
     if (aKeys[i][1] === 1) {
-      pKey.textContent = aKeys[i][keyMode];
+      // pKey.textContent = aKeys[i][2];
+      [, , pKey.textContent] = aKeys[i];
       pKey.classList.add('key-control');
     }
 
     if (aKeys[i][6] === 2) pKey.style.width = '95px';
     else if (aKeys[i][6] === 3) pKey.style.width = '350px';
 
-    pKey.addEventListener('click', () => {
-      this.classList.add('pressed');
+    pBoard.childNodes[aKeys[i][0]].appendChild(pKey);
+
+    pKey.addEventListener('click', (e) => {
+      e.target.classList.add('pressed');
       setTimeout(endPress, 300);
       if (aKeys[i][1] === 0) pText.value += getChar(i);
       if (aKeys[i][7] === 'Space') pText.value += ' ';
@@ -147,8 +150,6 @@ window.onload = function () {
       if (aKeys[i][7] === 'CapsLock') toggleCapsLock();
       if (aKeys[i][7] === 'Backspace')pText.value = getBack(pText.value);
     });
-
-    pBoard.childNodes[aKeys[i][0]].appendChild(pKey);
   }
 
   function toggleLanguage() {
@@ -170,8 +171,8 @@ window.onload = function () {
         setTimeout(endPress, 300);
         if (aKeys[i][1] === 0) pText.value += getChar(i);
       }
-      if (e.code === 'CapsLock') toggleCapsLock();
-      if (e.altKey && e.shiftKey) toggleLanguage();
     }
+    if (e.code === 'CapsLock') toggleCapsLock();
+    if (e.altKey && e.shiftKey) toggleLanguage();
   });
 };
